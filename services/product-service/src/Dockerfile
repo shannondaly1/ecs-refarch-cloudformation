@@ -1,17 +1,21 @@
-# Start from a small base
-FROM scratch
+FROM ruby:2.5.3
+MAINTAINER Jarrod Folino <jdfolino@gmail.com>
 
-# Our application requires no privileges
-# so run it with a non-root user
-ADD users /etc/passwd
-USER nobody
+RUN apt-get update && \
+    apt-get install -y net-tools
 
-# Our application runs on port 8001
-# so allow hosts to bind to that port
-EXPOSE 8001
+# Install gems
+ENV APP_HOME /app
+ENV HOME /root
+RUN mkdir $APP_HOME
+WORKDIR $APP_HOME
+COPY Gemfile* $APP_HOME/
+RUN bundle install
 
-# Add our application binary
-ADD app /app
+# Upload source
+COPY . $APP_HOME
 
-# Run our application!
-ENTRYPOINT [ "/app" ]
+# Start server
+ENV PORT 4567
+EXPOSE 4567
+CMD ["ruby", "app.rb"]
