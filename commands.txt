@@ -1,0 +1,12 @@
+aws s3 sync .  s3://cleargrain-cloudformation --exclude "*" --include "*.yaml" --delete
+
+
+
+Todos
+
+Code build the containers
+
+parameterize the
+* required templates
+* InstanceType sizes
+* container image
