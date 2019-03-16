@@ -4,7 +4,7 @@ require 'json'
 
 set :environment, :production
 set :logging, true
-set :port, 9494
+set :port, ENV['PORT']
 
 get '/' do
   content_type :json
