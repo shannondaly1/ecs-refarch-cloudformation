@@ -1,5 +1,8 @@
-aws s3 sync .  s3://cleargrain-cloudformation --exclude "*" --include "*.yaml" --delete
+aws s3 sync . s3://jdf-example --exclude "*" --include "*.yaml" --delete
 
+
+	Requires capabilities : [CAPABILITY_NAMED_IAM]
+AWS_DEFAULT_PROFILE=role_name aws cloudformation create-stack --stack-name stack_name --template-url s3_url/template file --parameters file:///local_params.json --capabilities CAPABILITY_NAMED_IAM
 
 
 Todos
