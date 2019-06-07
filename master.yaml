@@ -60,7 +60,7 @@ Resources:
   ProductService:
     Type: AWS::CloudFormation::Stack
     Properties:
-      TemplateURL: https://s3.amazonaws.com/jdf-example/services/product-service/service.yaml
+      TemplateURL: https://shannon-ecs-refarch-cloudformation.s3-ap-northeast-1.amazonaws.com/product-html/service.yaml
       Parameters:
         VPC: !GetAtt VPC.Outputs.VPC
         Cluster: !GetAtt ECS.Outputs.Cluster
@@ -71,7 +71,7 @@ Resources:
   WebsiteService:
     Type: AWS::CloudFormation::Stack
     Properties:
-      TemplateURL: https://s3.amazonaws.com/jdf-example/services/website-service/service.yaml
+      TemplateURL: https://shannon-ecs-refarch-cloudformation.s3-ap-northeast-1.amazonaws.com/website-html/service.yaml
       Parameters:
         VPC: !GetAtt VPC.Outputs.VPC
         Cluster: !GetAtt ECS.Outputs.Cluster

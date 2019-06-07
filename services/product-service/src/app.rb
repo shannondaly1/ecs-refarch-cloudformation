@@ -11,7 +11,7 @@ get '/' do
   [
     {
         ID:          "0000-0000-0001",
-        Title:       "Fork Handles",
+        Title:       "Changed Product",
         Description: "Got forks? Worn out ones? You need our all new Fork Handles",
         Price:       6.95,
       },
